@@ -1,0 +1,32 @@
+#logo-mar{
+    height: 10px;
+    width: 20px;
+}
+.marriot{
+    height: 50px;
+    width: 50px;
+}
+body{
+    background-color: #ebeff5;
+}
+
+
+#total-orders{
+    background-color: #4cb4c7;
+}
+
+
+#orders-delivered{
+    background-color: #7abecc;
+}
+
+#orders-pending{
+    background-color: #7CD1C0;
+}
+
+.profile-pic{
+    max-width: 200px;
+    max-height:200px;
+    margin: 0 auto;
+    border-radius: 50%;
+}

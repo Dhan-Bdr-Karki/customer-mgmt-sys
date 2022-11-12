@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Add Product</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+</head>
+{% extends 'accounts/main.html' %}
+
+{% load static %}
+
+{% block content %}
+<body>
+    <div class="container m-5">
+
+        <div class="row justify-content-center">
+            <div class="col-md-4">
+        
+                <div class="card">
+                    <div class="card-title mx-3 text-info">
+                        <h3>Fill up all new products details:</h3>
+                    </div>
+
+                    <form method='POST' action="" enctype="multipart/form-data">
+                        {% csrf_token %}
+
+                        <div class="form-group m-3">
+                            <label>Product's Name</label>
+                            <input required name="name" type="text" placeholder="e.g. Mobile"
+                                class="form-control">
+                        </div>
+
+                        <div class="form-group m-3">
+                            <label>Product's Price</label>
+                            <input required name="price" type="text" placeholder="Enter product's price"
+                                class="form-control">
+                        </div>
+
+                        <div class="form-group m-3">
+                            <label>Category</label>
+                            <select name="category" class="form-control">
+                                <option value='none'>Select a Category...</option>
+                                <!-- Adding category name -->
+                                {% for category in categories %}
+                                <option value="{{category.id}}">{{category.name}}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+
+                        <div class="form-group m-3">
+                            <label>Product's Description</label>
+                            <input required name="description" type="text" placeholder="Choose category..."
+                                class="form-control">
+                        </div>
+                        
+
+                        <div class="form-group m-3">
+                            <label>Select Tags</label>
+                            <select name="tags" class="form-control">
+                                <option value='none'>Select a Tags...</option>
+
+                                <!-- Adding tags name -->
+                                {% for tag in tags %}
+                                <option value='{{tag.id}}'>{{tag.name}}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+
+
+                        <div class="form-group m-3">
+                            <label>Create a new Tag</label>
+                            <input name="new_tag" type="text" placeholder="Create a new tag"
+                                class="form-control">
+                        </div>
+
+
+                        <button type='submit' class="btn btn-primary m-3">Submit</button>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+{% endblock %}
+
+</html>
